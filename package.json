@@ -31,7 +31,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.0.0", // Add this line
+    "@whiskeysockets/baileys": "^6.0.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^4.2.4",
     "@brandond/findthelyrics": "^2.0.5",
@@ -49,7 +49,7 @@
     "chalk": "^4.1.2",
     "chats-simsimi": "^0.1.0",
     "chart.js": "4.4.2",
-    "cheerio": "1.0.0-rc.12", 
+    "cheerio": "1.0.0-rc.12",
     "colors": "1.4.0",
     "d3-node": "^3.0.0",
     "esm": "^3.2.25",
