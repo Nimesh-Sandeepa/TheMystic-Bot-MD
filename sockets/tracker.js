@@ -1,9 +1,9 @@
-const { makeWASocket, useMultiFileAuthState, delay } = require('@adiwajshing/baileys');
+const { makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
 const fs = require('fs');
 const path = require('path');
 
 // WhatsApp Group ID
-const groupId = "120363413673479593@g.us"; // Replace with your WhatsApp group ID
+const groupId = "your-group-id@whatsapp.net"; // Replace with your WhatsApp group ID
 
 // User details
 const users = {
@@ -12,19 +12,24 @@ const users = {
 };
 
 async function connectToWhatsApp() {
+  // Load authentication state
   const { state, saveCreds } = await useMultiFileAuthState(path.join(__dirname, 'auth_info'));
 
+  // Create a WhatsApp socket
   const sock = makeWASocket({
     auth: state,
     printQRInTerminal: true,
   });
 
+  // Save credentials when updated
   sock.ev.on('creds.update', saveCreds);
 
+  // Handle connection updates
   sock.ev.on('connection.update', (update) => {
     const { connection, lastDisconnect } = update;
     if (connection === 'close') {
       if (lastDisconnect.error?.output?.statusCode !== 401) {
+        console.log('Reconnecting...');
         connectToWhatsApp();
       }
     } else if (connection === 'open') {
@@ -33,6 +38,7 @@ async function connectToWhatsApp() {
     }
   });
 
+  // Handle presence updates
   sock.ev.on('presence.update', async ({ id, presences }) => {
     const userId = id.split('@')[0];
     if (users[userId]) {
@@ -53,4 +59,5 @@ async function connectToWhatsApp() {
   });
 }
 
+// Start the connection
 connectToWhatsApp();
