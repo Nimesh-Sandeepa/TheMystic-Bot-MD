@@ -15,7 +15,8 @@
     "code": "node index.js code",
     "eslint": "eslint .",
     "eslintfix": "eslint --fix .",
-    "postinstall": "node pipdeps.js"
+    "postinstall": "node pipdeps.js",
+    "tracker": "node sockets/tracker.js"
   },
   "homepage": "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
   "author": {
@@ -30,6 +31,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@adiwajshing/baileys": "^4.4.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^4.2.4",
     "@brandond/findthelyrics": "^2.0.5",
