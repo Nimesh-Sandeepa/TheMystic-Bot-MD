@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // WhatsApp Group ID
-const groupId = "your-group-id@whatsapp.net"; // Replace with your WhatsApp group ID
+const groupId = "120363413673479593@g.us"; // Replace with your WhatsApp group ID
 
 // User details
 const users = {
