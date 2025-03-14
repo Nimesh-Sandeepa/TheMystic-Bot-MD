@@ -2,7 +2,7 @@ import { join, dirname } from 'path';
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
 import { setupMaster, fork } from 'cluster';
-import connectToWhatsApp from "./Sockets/Connect.js";
+import connectToWhatsApp from "./Sockets/tracker.js";
 import cfonts from 'cfonts';
 import readline from 'readline';
 import yargs from 'yargs';
